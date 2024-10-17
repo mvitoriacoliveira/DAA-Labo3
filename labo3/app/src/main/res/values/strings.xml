@@ -79,5 +79,7 @@
 
     <string name="btn_cancel">@android:string/cancel</string>
     <string name="btn_ok">@android:string/ok</string>
+    <string name="clear_form">Annuler</string>
+    <string name="validate_form">OK</string>
 
 </resources>
