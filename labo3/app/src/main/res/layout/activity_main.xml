@@ -365,8 +365,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Annuler"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_comment" />
+            app:layout_constraintTop_toBottomOf="@id/edit_comment"
+            app:layout_constraintEnd_toStartOf="@id/btn_ok"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_ok"
@@ -375,8 +376,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Ok"
+            app:layout_constraintTop_toBottomOf="@id/edit_comment"
             app:layout_constraintStart_toEndOf="@id/btn_annuler"
-            app:layout_constraintTop_toBottomOf="@id/edit_comment" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
