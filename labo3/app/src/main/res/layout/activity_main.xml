@@ -161,19 +161,7 @@
                 android:text="@string/main_base_occupation_worker" />
         </RadioGroup>
 
-        <!-- Titre des données complémentaires -->
-        <TextView
-            android:id="@+id/text_view_specific_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/additional_title"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/person_type"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <!-- Titre des données complémentaires -->
+        <!-- Titre des données spécifiques -->
         <TextView
             android:id="@+id/text_view_specific_students_data"
             android:layout_width="wrap_content"
@@ -230,8 +218,8 @@
             android:id="@+id/group_student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="text_view_specific_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear"
-            tools:visibility="gone" />
+            app:constraint_referenced_ids="text_view_specific_students_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear"
+            android:visibility="gone" />
 
         <!-- Titre des données complémentaires -->
         <TextView
@@ -239,7 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/main_specific_students_title"
+            android:text="@string/additional_title"
             android:textAllCaps="true"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@id/person_type"
