@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,6 +8,7 @@
     tools:context="ch.heigvd.iict.daa.labo3.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
@@ -38,21 +38,21 @@
             android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="@string/main_base_name_title"
-            app:layout_constraintTop_toTopOf="@id/edit_name"
             app:layout_constraintBottom_toBottomOf="@id/edit_name"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintTop_toTopOf="@id/edit_name" />
 
         <EditText
             android:id="@+id/edit_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/main_base_name_title"
-            app:layout_constraintTop_toBottomOf="@id/text_view_base_data"
-            app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/text_view_base_data" />
 
 
         <!-- Champ pour prénom -->
@@ -60,44 +60,44 @@
             android:id="@+id/text_view_firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="@string/main_base_firstname_title"
-            app:layout_constraintTop_toTopOf="@id/edit_firstname"
             app:layout_constraintBottom_toBottomOf="@id/edit_firstname"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintTop_toTopOf="@id/edit_firstname" />
 
         <EditText
             android:id="@+id/edit_firstname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/main_base_firstname_title"
-            app:layout_constraintTop_toBottomOf="@id/edit_name"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/edit_name" />
 
         <!-- Champ pour anniversaire -->
         <TextView
             android:id="@+id/text_view_birthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="@string/main_base_birthdate_title"
-            app:layout_constraintTop_toTopOf="@id/edit_birthdate"
             app:layout_constraintBottom_toBottomOf="@id/edit_birthdate"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintTop_toTopOf="@id/edit_birthdate" />
 
         <EditText
             android:id="@+id/edit_birthdate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/main_base_birthdate_dialog_title"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
+            android:hint="@string/main_base_birthdate_dialog_title"
             android:inputType="date"
             app:layout_constraintEnd_toStartOf="@id/image_button_cake"
-            app:layout_constraintTop_toBottomOf="@id/edit_firstname"
-            app:layout_constraintStart_toStartOf="@id/guideline" />
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/edit_firstname" />
 
         <ImageButton
             android:id="@+id/image_button_cake"
@@ -116,8 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_nationality_title"
-            app:layout_constraintTop_toBottomOf="@id/edit_birthdate"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_birthdate" />
 
         <Spinner
             android:id="@+id/edit_nationality"
@@ -132,10 +132,10 @@
             android:id="@+id/text_view_occupation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/main_base_occupation_title"
-            app:layout_constraintTop_toBottomOf="@id/edit_nationality"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@id/edit_nationality" />
 
         <RadioGroup
             android:id="@+id/person_type"
@@ -170,8 +170,8 @@
             android:text="@string/main_specific_students_title"
             android:textAllCaps="true"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/person_type"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/person_type" />
 
         <!-- Champ pour école -->
         <TextView
@@ -180,19 +180,19 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/main_specific_school_title"
-            app:layout_constraintTop_toTopOf="@id/edit_school"
             app:layout_constraintBottom_toBottomOf="@id/edit_school"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_school" />
 
         <EditText
             android:id="@+id/edit_school"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/main_specific_school_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data"
-            android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data" />
 
         <!-- Champ pour année -->
         <TextView
@@ -201,9 +201,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/main_specific_graduationyear_title"
-            app:layout_constraintTop_toTopOf="@id/edit_comment"
             app:layout_constraintBottom_toBottomOf="@id/edit_graduateyear"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_comment" />
 
         <EditText
             android:id="@+id/edit_graduateyear"
@@ -218,8 +218,8 @@
             android:id="@+id/group_student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="text_view_specific_students_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:constraint_referenced_ids="text_view_specific_students_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear" />
 
         <!-- Titre des données complémentaires -->
         <TextView
@@ -230,8 +230,8 @@
             android:text="@string/additional_title"
             android:textAllCaps="true"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/person_type"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/person_type" />
 
         <!-- Champ pour email -->
         <TextView
@@ -240,19 +240,19 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/additional_email_title"
-            app:layout_constraintTop_toTopOf="@id/edit_email"
             app:layout_constraintBottom_toBottomOf="@id/edit_email"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_email" />
 
         <EditText
             android:id="@+id/edit_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/additional_email_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data"
-            android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data" />
 
         <!-- Champ pour commentaires -->
         <TextView
@@ -261,9 +261,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/additional_remarks_title"
-            app:layout_constraintTop_toTopOf="@id/edit_comment"
             app:layout_constraintBottom_toBottomOf="@id/edit_comment"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_comment" />
 
         <EditText
             android:id="@+id/edit_comment"
@@ -279,20 +279,20 @@
             android:id="@+id/btn_annuler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Annuler"
-            app:layout_constraintTop_toBottomOf="@id/edit_comment"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@id/edit_comment" />
 
         <Button
             android:id="@+id/btn_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ok"
-            app:layout_constraintTop_toBottomOf="@id/edit_comment"
-            app:layout_constraintStart_toEndOf="@id/btn_annuler"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:text="Ok"
+            app:layout_constraintStart_toEndOf="@id/btn_annuler"
+            app:layout_constraintTop_toBottomOf="@id/edit_comment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
