@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import ch.heigvd.iict.daa.labo3.databinding.ActivityMainBinding
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         initSpinners()
         setupRadioGroupListener()
         binding.btnAnnuler.setOnClickListener { clearForm() }
+        binding.btnOk.setOnClickListener { onSaveButtonClick() }
         binding.imageButtonCake.setOnClickListener { datePicker() }
     }
 
@@ -122,6 +124,18 @@ class MainActivity : AppCompatActivity() {
     private fun getCalendarFromForm(): Calendar {
         return Calendar.getInstance().also {
             it.time = dateFormatter.parse(binding.editBirthdate.text.toString()) ?: Date()
+        }
+    }
+
+    private fun onSaveButtonClick() {
+        if (binding.radioButtonStudent.isChecked) {
+            val student = createStudentFromForm()
+            Toast.makeText(this, "Étudiant créé : $student", Toast.LENGTH_SHORT).show()
+        } else if (binding.radioButtonWorker.isChecked) {
+            val worker = createWorkerFromForm()
+            Toast.makeText(this, "Travailleur créé : $worker", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Veuillez sélectionner un type de personne", Toast.LENGTH_SHORT).show()
         }
     }
 }
