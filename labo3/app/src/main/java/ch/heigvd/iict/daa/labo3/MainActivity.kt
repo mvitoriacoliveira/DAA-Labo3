@@ -1,21 +1,21 @@
 package ch.heigvd.iict.daa.labo3
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import ch.heigvd.iict.daa.labo3.databinding.ActivityMainBinding
-import java.util.Calendar
-import android.app.DatePickerDialog
-import android.widget.DatePicker
+import ch.heigvd.iict.daa.labo3.models.Student
+import ch.heigvd.iict.daa.labo3.models.Worker
 import java.text.SimpleDateFormat
-import java.util.Locale
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
 
-    // Format de date pour afficher dans editBirthdate
+    private lateinit var binding: ActivityMainBinding
     private val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,14 +26,11 @@ class MainActivity : AppCompatActivity() {
         initSpinners()
         setupRadioGroupListener()
         binding.btnAnnuler.setOnClickListener { clearForm() }
-        binding.imageButtonCake.setOnClickListener {
-            datePicker()
-        }
+        binding.imageButtonCake.setOnClickListener { datePicker() }
     }
 
     private fun datePicker() {
         val calendar = Calendar.getInstance()
-
         val datePickerDialog = DatePickerDialog(
             this,
             { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
@@ -48,36 +45,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRadioGroupListener() {
-        // Logique pour gérer le RadioGroup et afficher/masquer les sections
         binding.personType.setOnCheckedChangeListener { _, checkedId ->
-            val constraintLayout = binding.constraintLayout
-            val constraintSet = ConstraintSet()
-            constraintSet.clone(constraintLayout)
             when (checkedId) {
                 binding.radioButtonStudent.id -> {
                     binding.groupStudent.visibility = View.VISIBLE
                     binding.groupWorkers.visibility = View.GONE
-                    binding.textViewSpecificWorkerData.visibility = View.GONE
-                    binding.textViewSpecificStudentsData.visibility = View.VISIBLE
-                    constraintSet.connect(
-                        binding.textViewAdditionalData.id, ConstraintSet.TOP,
-                        binding.groupStudent.id, ConstraintSet.BOTTOM, 16
-                    )
                 }
                 binding.radioButtonWorker.id -> {
                     binding.groupWorkers.visibility = View.VISIBLE
                     binding.groupStudent.visibility = View.GONE
-                    binding.textViewSpecificWorkerData.visibility = View.VISIBLE
-                    binding.textViewSpecificStudentsData.visibility = View.GONE
-                    constraintSet.connect(
-                        binding.textViewAdditionalData.id, ConstraintSet.TOP,
-                        binding.groupWorkers.id, ConstraintSet.BOTTOM, 16
-                    )
                 }
             }
-            constraintSet.applyTo(constraintLayout)
         }
     }
+
 
     private fun clearForm() {
         binding.editName.text.clear()
@@ -106,5 +87,41 @@ class MainActivity : AppCompatActivity() {
             listOf(getString(R.string.sectors_empty)) + resources.getStringArray(R.array.sectors).toList()
         ).also { it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
     }
-}
 
+    private fun createStudentFromForm(): Student {
+        with(binding) {
+            return Student(
+                editName.text.toString(),
+                editFirstname.text.toString(),
+                getCalendarFromForm(),
+                editNationality.selectedItem.toString(),
+                editSchool.text.toString(),
+                editGraduateyear.text.toString().toInt(),
+                editEmail.text.toString(),
+                editComment.text.toString()
+            )
+        }
+    }
+
+    private fun createWorkerFromForm(): Worker {
+        with(binding) {
+            return Worker(
+                editName.text.toString(),
+                editFirstname.text.toString(),
+                getCalendarFromForm(),
+                editNationality.selectedItem.toString(),
+                editCompany.text.toString(),
+                editSector.selectedItem.toString(),
+                editExperience.text.toString().toInt(),
+                editEmail.text.toString(),
+                editComment.text.toString()
+            )
+        }
+    }
+
+    private fun getCalendarFromForm(): Calendar {
+        return Calendar.getInstance().also {
+            it.time = dateFormatter.parse(binding.editBirthdate.text.toString()) ?: Date()
+        }
+    }
+}
