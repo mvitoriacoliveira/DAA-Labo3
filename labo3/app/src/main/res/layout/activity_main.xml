@@ -161,7 +161,14 @@
                 android:text="@string/main_base_occupation_worker" />
         </RadioGroup>
 
-        <!-- Titre des données spécifiques -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="text_view_specific_students_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear" />
+
+        <!-- Titre des données spécifiques étudiants-->
         <TextView
             android:id="@+id/text_view_specific_students_data"
             android:layout_width="wrap_content"
@@ -203,7 +210,7 @@
             android:text="@string/main_specific_graduationyear_title"
             app:layout_constraintBottom_toBottomOf="@id/edit_graduateyear"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/edit_comment" />
+            app:layout_constraintTop_toTopOf="@id/edit_graduateyear" />
 
         <EditText
             android:id="@+id/edit_graduateyear"
@@ -214,12 +221,89 @@
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/edit_school" />
 
+
+        <!-- Group pour champs spécifiques aux travailleurs -->
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_student"
+            android:id="@+id/group_workers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            app:constraint_referenced_ids="text_view_specific_students_data,text_view_school,edit_school,text_view_graduateyear,edit_graduateyear" />
+            app:constraint_referenced_ids="text_view_specific_worker_data,text_view_company,edit_company,text_view_sector,edit_sector,text_view_experience,edit_experience" />
+
+        <!-- Titre des données spécifiques travailleur -->
+        <TextView
+            android:id="@+id/text_view_specific_worker_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/main_specific_workers_title"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/person_type" />
+
+        <!-- Champ pour company -->
+        <TextView
+            android:id="@+id/text_view_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/main_specific_compagny_title"
+            app:layout_constraintBottom_toBottomOf="@id/edit_company"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_company" />
+
+        <EditText
+            android:id="@+id/edit_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/main_specific_compagny_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/text_view_specific_worker_data" />
+
+        <!-- Champ pour secteur -->
+        <TextView
+            android:id="@+id/text_view_sector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/main_specific_sector_title"
+            app:layout_constraintBottom_toBottomOf="@id/edit_sector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_sector" />
+
+        <Spinner
+            android:id="@+id/edit_sector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/edit_company" />
+
+        <!-- Champ pour expérience -->
+        <TextView
+            android:id="@+id/text_view_experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/main_specific_experience_title"
+            app:layout_constraintBottom_toBottomOf="@id/edit_experience"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edit_experience" />
+
+        <EditText
+            android:id="@+id/edit_experience"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_specific_experience_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/edit_sector" />
+
+
+
 
         <!-- Titre des données complémentaires -->
         <TextView
