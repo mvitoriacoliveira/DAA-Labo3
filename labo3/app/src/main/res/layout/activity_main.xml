@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <!-- Guideline à 40% de la largeur pour aligner les champs de saisie -->
+        <!-- Guideline -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
@@ -33,61 +33,63 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Champ de saisie pour nom -->
+        <!-- Champ pour nom -->
         <TextView
             android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_name_title"
-            app:layout_constraintTop_toBottomOf="@id/text_view_base_data"
+            app:layout_constraintTop_toTopOf="@id/edit_name"
+            app:layout_constraintBottom_toBottomOf="@id/edit_name"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/edit_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/main_base_name_title"
-            app:layout_constraintTop_toTopOf="@id/text_view_name"
+            app:layout_constraintTop_toBottomOf="@id/text_view_base_data"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="16dp" />
+            android:layout_marginTop="16dp" />
 
-        <!-- Champ de saisie pour prénom -->
+
+        <!-- Champ pour prénom -->
         <TextView
             android:id="@+id/text_view_firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_firstname_title"
-            app:layout_constraintTop_toBottomOf="@id/edit_name"
+            app:layout_constraintTop_toTopOf="@id/edit_firstname"
+            app:layout_constraintBottom_toBottomOf="@id/edit_firstname"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/edit_firstname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/main_base_firstname_title"
-            app:layout_constraintTop_toTopOf="@id/text_view_firstname"
+            app:layout_constraintTop_toBottomOf="@id/edit_name"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="16dp" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Champ de saisie pour anniversaire -->
+        <!-- Champ pour anniversaire -->
         <TextView
             android:id="@+id/text_view_birthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_birthdate_title"
-            app:layout_constraintTop_toBottomOf="@id/edit_firstname"
+            app:layout_constraintTop_toTopOf="@id/edit_birthdate"
+            app:layout_constraintBottom_toBottomOf="@id/edit_birthdate"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/edit_birthdate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:hint="@string/main_base_birthdate_dialog_title"
             android:clickable="false"
             android:cursorVisible="false"
@@ -115,14 +117,12 @@
             android:layout_height="wrap_content"
             android:text="@string/main_base_nationality_title"
             app:layout_constraintTop_toBottomOf="@id/edit_birthdate"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/edit_nationality"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/edit_birthdate" />
@@ -161,9 +161,9 @@
                 android:text="@string/main_base_occupation_worker" />
         </RadioGroup>
 
-        <!-- Titre des données supplémentaires -->
+        <!-- Titre des données complémentaires -->
         <TextView
-            android:id="@+id/text_view_additional_data"
+            android:id="@+id/text_view_specific_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -173,45 +173,48 @@
             app:layout_constraintTop_toBottomOf="@id/person_type"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Champ de saisie pour email -->
+
+
+        <!-- Champ pour email -->
         <TextView
             android:id="@+id/text_view_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/additional_email_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data" />
+            app:layout_constraintTop_toTopOf="@id/edit_email"
+            app:layout_constraintBottom_toBottomOf="@id/edit_email"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/edit_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:hint="@string/additional_email_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="@id/text_view_email" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data"
+            android:layout_marginTop="16dp"/>
 
-        <!-- Label pour le champ commentaire -->
+        <!-- Champ pour commentaires -->
         <TextView
             android:id="@+id/text_view_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/additional_remarks_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_email" />
+            app:layout_constraintTop_toTopOf="@id/edit_comment"
+            app:layout_constraintBottom_toBottomOf="@id/edit_comment"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/edit_comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:hint="@string/additional_remarks_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="@id/text_view_comment" />
+            app:layout_constraintTop_toBottomOf="@id/edit_email" />
 
         <!-- Boutons pour annuler et ok le formulaire -->
         <Button
