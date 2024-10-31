@@ -47,7 +47,7 @@
             android:id="@+id/edit_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Nom"
+            android:hint="@string/main_base_name_title"
             app:layout_constraintTop_toTopOf="@id/text_view_name"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
 
         <!-- Champ de saisie pour prénom -->
         <TextView
-            android:id="@+id/text_view_age"
+            android:id="@+id/text_view_firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_base_firstname_title"
@@ -67,8 +67,8 @@
             android:id="@+id/edit_firstname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Prénom"
-            app:layout_constraintTop_toTopOf="@id/text_view_age"
+            android:hint="@string/main_base_firstname_title"
+            app:layout_constraintTop_toTopOf="@id/text_view_firstname"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="16dp" />
@@ -122,10 +122,10 @@
             android:id="@+id/edit_nationality"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/edit_birthdate"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/edit_birthdate" />
 
         <!-- RadioGroup pour sélectionner type de personne -->
         <TextView
@@ -161,13 +161,65 @@
                 android:text="@string/main_base_occupation_worker" />
         </RadioGroup>
 
+        <!-- Titre des données supplémentaires -->
+        <TextView
+            android:id="@+id/text_view_additional_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/additional_title"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/person_type"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Champ de saisie pour email -->
+        <TextView
+            android:id="@+id/text_view_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/additional_email_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_additional_data" />
+
+        <EditText
+            android:id="@+id/edit_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/additional_email_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/text_view_email" />
+
+        <!-- Label pour le champ commentaire -->
+        <TextView
+            android:id="@+id/text_view_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/additional_remarks_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+        <EditText
+            android:id="@+id/edit_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/additional_remarks_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/text_view_comment" />
+
         <!-- Boutons pour annuler et ok le formulaire -->
         <Button
             android:id="@+id/btn_annuler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Annuler"
-            app:layout_constraintTop_toBottomOf="@id/person_type"
+            app:layout_constraintTop_toBottomOf="@id/edit_comment"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp" />
 
@@ -176,7 +228,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ok"
-            app:layout_constraintTop_toBottomOf="@id/person_type"
+            app:layout_constraintTop_toBottomOf="@id/edit_comment"
             app:layout_constraintStart_toEndOf="@id/btn_annuler"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp" />
