@@ -68,8 +68,13 @@ class MainActivity : AppCompatActivity() {
         binding.editBirthdate.text.clear()
         binding.editNationality.setSelection(0)
         binding.personType.clearCheck()
+
         binding.editSchool.text.clear()
         binding.editGraduateyear.text.clear()
+        binding.editCompany.text.clear()
+        binding.editSector.setSelection(0)
+        binding.editExperience.text.clear()
+
         binding.editEmail.text.clear()
         binding.editComment.text.clear()
         binding.groupStudent.visibility = View.GONE
