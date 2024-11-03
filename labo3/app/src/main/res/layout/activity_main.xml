@@ -303,7 +303,12 @@
             app:layout_constraintTop_toBottomOf="@id/edit_sector" />
 
 
-
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/anchor_additional_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="edit_graduateyear,edit_experience" />
 
         <!-- Titre des données complémentaires -->
         <TextView
@@ -315,7 +320,7 @@
             android:textAllCaps="true"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/person_type" />
+            app:layout_constraintTop_toBottomOf="@id/anchor_additional_data" />
 
         <!-- Champ pour email -->
         <TextView
