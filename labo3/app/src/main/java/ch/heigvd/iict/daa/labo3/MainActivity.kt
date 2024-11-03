@@ -52,10 +52,12 @@ class MainActivity : AppCompatActivity() {
                 binding.radioButtonStudent.id -> {
                     binding.groupStudent.visibility = View.VISIBLE
                     binding.groupWorkers.visibility = View.GONE
+                    initializeViewWithPerson(Person.exampleStudent)
                 }
                 binding.radioButtonWorker.id -> {
                     binding.groupWorkers.visibility = View.VISIBLE
                     binding.groupStudent.visibility = View.GONE
+                    initializeViewWithPerson(Person.exampleWorker)
                 }
             }
         }
@@ -125,6 +127,58 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
+
+    private fun initializeViewWithPerson(person: Person) {
+        // Fill in the common fields
+        binding.editName.setText(person.name)
+        binding.editFirstname.setText(person.firstName)
+        binding.editBirthdate.setText(dateFormatter.format(person.birthDay.time))
+        binding.editNationality.setSelection(getNationalityIndex(person.nationality))
+        binding.editEmail.setText(person.email)
+        binding.editComment.setText(person.remark)
+
+        // Check the type of the person and initialize accordingly
+        when (person) {
+            is Student -> {
+                // Set the view to Student mode
+                binding.radioButtonStudent.isChecked = true
+                binding.groupStudent.visibility = View.VISIBLE
+                binding.groupWorkers.visibility = View.GONE
+
+                // Fill in student-specific fields
+                binding.editSchool.setText(person.university)
+                binding.editGraduateyear.setText(person.graduationYear.toString())
+            }
+            is Worker -> {
+                // Set the view to Worker mode
+                binding.radioButtonWorker.isChecked = true
+                binding.groupWorkers.visibility = View.VISIBLE
+                binding.groupStudent.visibility = View.GONE
+
+                // Fill in worker-specific fields
+                binding.editCompany.setText(person.company)
+                binding.editSector.setSelection(getSectorIndex(person.sector))
+                binding.editExperience.setText(person.experienceYear.toString())
+            }
+        }
+    }
+
+    private fun getIndexFromArray(array: Array<String>, item: String): Int {
+        return array.indexOf(item).takeIf { it >= 0 } ?: 0
+    }
+
+    // Get index of nationality in the spinner
+    private fun getNationalityIndex(nationality: String): Int {
+        val nationalitiesArray = resources.getStringArray(R.array.nationalities)
+        return getIndexFromArray(nationalitiesArray, nationality)
+    }
+
+    // Get index of sector in the spinner
+    private fun getSectorIndex(sector: String): Int {
+        val sectorsArray = resources.getStringArray(R.array.sectors)
+        return getIndexFromArray(sectorsArray, sector)
+    }
+
 
     private fun getCalendarFromForm(): Calendar {
         return Calendar.getInstance().also {
