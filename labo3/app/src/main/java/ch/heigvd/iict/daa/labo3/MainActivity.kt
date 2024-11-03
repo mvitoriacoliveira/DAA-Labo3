@@ -1,5 +1,7 @@
 package ch.heigvd.iict.daa.labo3
 
+import Student
+import Worker
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
