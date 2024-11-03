@@ -358,7 +358,6 @@
             android:id="@+id/edit_comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/additional_remarks_title"
             android:gravity="top"
             android:inputType="textAutoComplete|textMultiLine"
             android:minHeight="100dp"
