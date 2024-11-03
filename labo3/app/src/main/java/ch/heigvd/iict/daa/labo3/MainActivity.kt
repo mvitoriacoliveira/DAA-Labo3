@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getIndexFromArray(array: Array<String>, item: String): Int {
-        return array.indexOf(item).takeIf { it >= 0 } ?: 0
+        return ((array.indexOf(item).takeIf { it >= 0 } ?: 0) + 1)
     }
 
     // Get index of nationality in the spinner
