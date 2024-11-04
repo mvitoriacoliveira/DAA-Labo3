@@ -11,15 +11,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import ch.heigvd.iict.daa.labo3.databinding.ActivityMainBinding
-import ch.heigvd.iict.daa.labo3.models.Student
-import ch.heigvd.iict.daa.labo3.models.Worker
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val dateFormatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             this,
             { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
                 calendar.set(year, month, dayOfMonth)
-                binding.editBirthdate.setText(dateFormatter.format(calendar.time))
+                binding.editBirthdate.setText(Person.dateFormatter.format(calendar.time))
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -134,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         // Fill in the common fields
         binding.editName.setText(person.name)
         binding.editFirstname.setText(person.firstName)
-        binding.editBirthdate.setText(dateFormatter.format(person.birthDay.time))
+        binding.editBirthdate.setText(Person.dateFormatter.format(person.birthDay.time))
         binding.editNationality.setSelection(getNationalityIndex(person.nationality))
         binding.editEmail.setText(person.email)
         binding.editComment.setText(person.remark)
@@ -184,7 +181,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getCalendarFromForm(): Calendar {
         return Calendar.getInstance().also {
-            it.time = dateFormatter.parse(binding.editBirthdate.text.toString()) ?: Date()
+            it.time = Person.dateFormatter.parse(binding.editBirthdate.text.toString()) ?: Date()
         }
     }
 
