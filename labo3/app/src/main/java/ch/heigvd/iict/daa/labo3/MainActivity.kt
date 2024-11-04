@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
 import ch.heigvd.iict.daa.labo3.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -216,3 +215,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
