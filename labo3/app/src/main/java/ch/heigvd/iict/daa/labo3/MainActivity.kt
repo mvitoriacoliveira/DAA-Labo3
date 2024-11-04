@@ -1,7 +1,5 @@
 package ch.heigvd.iict.daa.labo3
 
-import Student
-import Worker
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -10,7 +8,9 @@ import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ch.heigvd.iict.daa.labo3.databinding.ActivityMainBinding
-import java.text.SimpleDateFormat
+import ch.heigvd.iict.daa.labo3.models.Person
+import ch.heigvd.iict.daa.labo3.models.Student
+import ch.heigvd.iict.daa.labo3.models.Worker
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
