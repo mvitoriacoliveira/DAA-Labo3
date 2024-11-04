@@ -203,8 +203,12 @@ class MainActivity : AppCompatActivity() {
             // Check if nationality and sector are selected
             val nationality = binding.editNationality.selectedItemPosition
             val sector = binding.editSector.selectedItemPosition
-            if (nationality == 0 || sector == 0) {
-                Toast.makeText(this, "Veuillez sélectionner une nationalité et un secteur", Toast.LENGTH_SHORT).show()
+            if (nationality == 0) {
+                Toast.makeText(this, "Veuillez sélectionner une nationalité", Toast.LENGTH_SHORT).show()
+                return
+            }
+            if (sector == 0) {
+                Toast.makeText(this, "Veuillez sélectionner un secteur", Toast.LENGTH_SHORT).show()
                 return
             }
 
