@@ -190,9 +190,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun onSaveButtonClick() {
         if (binding.radioButtonStudent.isChecked) {
+            // Check if nationality is selected
+            val nationality = binding.editNationality.selectedItemPosition
+            if (nationality == 0) {
+                Toast.makeText(this, "Veuillez sélectionner une nationalité", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val student = createStudentFromForm()
             Toast.makeText(this, "Étudiant créé : $student", Toast.LENGTH_SHORT).show()
         } else if (binding.radioButtonWorker.isChecked) {
+            // Check if nationality and sector are selected
+            val nationality = binding.editNationality.selectedItemPosition
+            val sector = binding.editSector.selectedItemPosition
+            if (nationality == 0 || sector == 0) {
+                Toast.makeText(this, "Veuillez sélectionner une nationalité et un secteur", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val worker = createWorkerFromForm()
             Toast.makeText(this, "Travailleur créé : $worker", Toast.LENGTH_SHORT).show()
         } else {
